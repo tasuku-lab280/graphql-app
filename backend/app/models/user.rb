@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id         :bigint           not null, primary key
+#  nickname   :string(255)      not null
+#  email      :string(255)      not null
+#  image      :string(255)
+#  note       :text(65535)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 #
 # = 会員
 #

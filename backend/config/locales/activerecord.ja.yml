@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    models:
+      user: "会員"
+      article: "記事"
+
+    attributes:
+      user:
+        nickname: "ニックネーム"
+        email: "Eメール"
+        note: "備考"
+        created_at: "作成日時"
+        updated_at: "更新日時"
+
+      article:
+        user_id: "会員ID"
+        status: "ステータス"
+        title: "タイトル"
+        body: "本文"
+        note: "備考"
+        created_at: "作成日時"
+        updated_at: "更新日時"

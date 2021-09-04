@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: articles
+#
+#  id         :bigint           not null, primary key
+#  user_id    :integer          not null
+#  status     :string(255)      default("draft"), not null
+#  title      :string(255)      not null
+#  body       :text(65535)      not null
+#  image      :string(255)
+#  note       :text(65535)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 #
 # = 記事
 #
