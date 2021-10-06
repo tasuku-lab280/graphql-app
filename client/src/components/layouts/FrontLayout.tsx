@@ -1,13 +1,11 @@
 import Container from "@material-ui/core/Container";
 
-import Header from "./Header";
+import Header from "../common/Header";
 
-const CommonLayout = ({ children }) => {
+const CommonLayout = (children: React.ReactNode) => {
   return (
     <>
-      <header>
-        <Header />
-      </header>
+      <Header />
       <Container style={{ marginTop: 20 }} maxWidth="lg">
         <main>{children}</main>
       </Container>
