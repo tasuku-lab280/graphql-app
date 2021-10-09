@@ -1,8 +1,14 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Home: NextPage = () => {
+  const { user, logout, loginWithRedirect, isAuthenticated, isLoading } =
+    useAuth0();
+
+  if (isLoading) return <div>Loading ...</div>;
+
   return (
     <div>
       <Head>
@@ -18,6 +24,20 @@ const Home: NextPage = () => {
             <a>this page!</a>
           </Link>
         </h1>
+        {isAuthenticated && (
+          <>
+            <div>
+              <h2>{user.name}</h2>
+              <p>{user.email}</p>
+            </div>
+            <button
+              onClick={() => logout({ returnTo: window.location.origin })}
+            >
+              Log Out
+            </button>
+          </>
+        )}
+        <button onClick={() => loginWithRedirect()}>Log In</button>
       </main>
     </div>
   );
