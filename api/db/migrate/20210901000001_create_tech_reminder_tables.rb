@@ -2,8 +2,9 @@ class CreateTechReminderTables < ActiveRecord::Migration[6.0]
   def up
     # 会員
     create_table :users do |t|
-      t.string     :nickname, null: false
+      t.string     :auth_id,  null: false
       t.string     :email,    null: false
+      t.string     :nickname, null: false
       t.string     :image
       t.text       :note
       t.timestamps null: false

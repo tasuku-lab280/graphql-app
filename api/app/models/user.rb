@@ -3,8 +3,8 @@
 # Table name: users
 #
 #  id         :bigint           not null, primary key
-#  nickname   :string(255)      not null
 #  email      :string(255)      not null
+#  nickname   :string(255)      not null
 #  image      :string(255)
 #  note       :text(65535)
 #  created_at :datetime         not null
@@ -38,6 +38,10 @@ class User < ApplicationRecord
 
 
   # バリデーション
+  validates :auth_id,               presence: true,
+                                    # length: { maximum: 255 }
+                                    uniqueness: { case_sensitive: false }
+                                    # format: false
   validates :nickname,              presence: true,
                                     length: { maximum: 32, allow_blank: true }
                                     # uniqueness: false,
@@ -56,6 +60,15 @@ class User < ApplicationRecord
 
 
   # クラスメソッド
+  def self.from_token_payload(payload)
+    return if payload.blank?
+
+    self.find_or_create_by!(
+      auth_id: payload['sub'],
+      email: payload['email'],
+      nickname: payload['name'],
+    )
+  end
 
 
   # クラスメソッド(Private)

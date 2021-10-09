@@ -5,6 +5,7 @@ USER_IDS = [1, 2, 3]
 results = Array.new(COUNT) do |i|
   num = i + 1
   {
+    auth_id: "#{num}",
     nickname:  "会員#{num}",
     email: "dev+user#{num}@example.com",
   }
