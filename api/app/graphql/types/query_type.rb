@@ -7,16 +7,9 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
-    field :articles, [Types::ArticleType], null: false
-    def articles
-      Article.all
-    end
-
-    field :article, Types::ArticleType, null: false do
-      argument :id, Int, required: false
-    end
-    def article(id:)
-      Article.find(id)
+    field :current_user, Types::UserType, null: false
+    def current_user
+      context[:current_user]
     end
   end
 end

@@ -43,7 +43,9 @@ class User < ApplicationRecord
 
   # クラスメソッド
   def self.from_token_payload(payload)
-    find_by(sub: payload['sub']) || create!(sub: payload['sub'])
+    return if payload.blank?
+
+    find_or_create_by!(sub: payload['sub'])
   end
 
 
