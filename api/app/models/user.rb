@@ -3,9 +3,7 @@
 # Table name: users
 #
 #  id         :bigint           not null, primary key
-#  nickname   :string(255)      not null
-#  email      :string(255)      not null
-#  image      :string(255)
+#  sub        :string(255)      not null
 #  note       :text(65535)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -25,7 +23,7 @@ class User < ApplicationRecord
 
 
   # 関連
-  has_many :articles, dependent: :destroy
+  has_many :posts, dependent: :destroy
 
 
   # 委譲
@@ -38,24 +36,15 @@ class User < ApplicationRecord
 
 
   # バリデーション
-  validates :nickname,              presence: true,
-                                    length: { maximum: 32, allow_blank: true }
-                                    # uniqueness: false,
-                                    # format: false
-  # validates :image,                 presence: false,
-                                    # length: { maximum: 255 }
-                                    # uniqueness: false
-                                    # format: false
-  validates :note,                  # presence: false,
-                                    length: { maximum: 1024, allow_blank: true }
-                                    # uniqueness: false
-                                    # format: false
 
 
   # クラス変数
 
 
   # クラスメソッド
+  def self.from_token_payload(payload)
+    find_by(sub: payload['sub']) || create!(sub: payload['sub'])
+  end
 
 
   # クラスメソッド(Private)

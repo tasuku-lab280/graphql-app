@@ -1,22 +1,21 @@
 # == Schema Information
 #
-# Table name: articles
+# Table name: posts
 #
 #  id         :bigint           not null, primary key
 #  user_id    :integer          not null
 #  status     :string(255)      default("draft"), not null
 #  title      :string(255)      not null
 #  body       :text(65535)      not null
-#  image      :string(255)
 #  note       :text(65535)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 #
-# = 記事
+# = 投稿
 #
-class Article < ApplicationRecord
+class Post < ApplicationRecord
   # モジュール
   extend Enumerize
   enumerize :status, in: %i(public private draft), predicates: { prefix: true }, scope: true
@@ -57,10 +56,6 @@ class Article < ApplicationRecord
   validates :body,                  presence: true,
                                     length: { maximum: 65535, allow_blank: true }
                                     # uniqueness: false,
-                                    # format: false
-  # validates :image,                 presence: false,
-                                    # length: { maximum: 255 }
-                                    # uniqueness: false
                                     # format: false
   validates :note,                  presence: false,
                                     length: { maximum: 1024, allow_blank: true }

@@ -23,6 +23,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Custom
 gem 'graphql'
+gem 'dotenv-rails'
+gem 'jwt'
 gem 'rack-cors'
 gem 'enumerize'
 gem 'annotate'
