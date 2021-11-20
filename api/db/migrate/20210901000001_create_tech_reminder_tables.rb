@@ -2,11 +2,15 @@ class CreateTechReminderTables < ActiveRecord::Migration[6.0]
   def up
     # 会員
     create_table :users do |t|
-      t.string     :sub,      null: false
+      t.string     :auth0_id, null: false
+      t.string     :nickname
+      t.string     :email
       t.text       :note
 
       t.timestamps null: false
     end
+    add_index :users, :auth0_id, unique: true
+    add_index :users, :email, unique: true
 
     # 投稿
     create_table :posts do |t|
@@ -18,7 +22,6 @@ class CreateTechReminderTables < ActiveRecord::Migration[6.0]
 
       t.timestamps null: false
     end
-
     add_index :posts, :user_id
   end
 
