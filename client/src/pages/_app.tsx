@@ -1,5 +1,5 @@
 import type { AppProps } from "next/app";
-import "../styles/globals.css";
+import "../styles/globals.scss";
 
 import Auth0Provider from "../services/auth0/Auth0Provider";
 import ApolloProvider from "../services/graphql/ApolloProvider";
