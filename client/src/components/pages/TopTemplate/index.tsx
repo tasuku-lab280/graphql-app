@@ -1,6 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
 
-import BaseLayout from "../layouts/BaseLayout";
+import BaseLayout from "../../layouts/BaseLayout";
 
 const TopTemplate = () => {
   const { isAuthenticated } = useAuth0();

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { gql, useMutation } from "@apollo/client";
 
-import BaseLayout from "../layouts/BaseLayout";
+import BaseLayout from "../../layouts/BaseLayout";
 
 const UPDATE_USER_MUTATION = gql`
   mutation UpdateUserMutation($nickname: String!, $email: String!) {
