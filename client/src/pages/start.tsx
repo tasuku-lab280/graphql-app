@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { gql, useMutation } from "@apollo/client";
 import { Container, Card, CardContent, TextField, Button } from "@mui/material";
 
-import Header from "../components/common/Header";
+import Header from "../components/layouts/Header";
 
 const UPDATE_USER_MUTATION = gql`
   mutation UpdateUserMutation($nickname: String!, $email: String!) {

@@ -10,7 +10,7 @@ import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 
-import Header from "../common/Header";
+import Header from "../layouts/Header";
 
 export const USER_QUERY = gql`
   query UserQuery($id: Int!) {
