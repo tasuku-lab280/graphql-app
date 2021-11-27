@@ -12,7 +12,7 @@ const Header = () => {
         <Link href="/">
           <div className={styles.title}>
             <h1>TechReminder</h1>
-            <p>学んだことを忘れない</p>
+            <p>HOGEHOGE</p>
           </div>
         </Link>
         {/* リンク */}

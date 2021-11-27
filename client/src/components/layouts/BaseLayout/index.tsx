@@ -1,8 +1,16 @@
+import Breadcrumbs from "../Breadcrumbs";
 import Header from "../Header";
 import Footer from "../Footer";
 import styles from "./styles.module.scss";
 
-const BaseLayout: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+  breadName?: string;
+}
+
+const BaseLayout = (props: Props) => {
+  const { children, breadName } = props;
+
   return (
     <>
       <div className={styles.wrapper}>
@@ -11,6 +19,9 @@ const BaseLayout: React.FC = ({ children }) => {
           <Header />
           <div className={styles.headerEmpty} />
         </div>
+
+        {/* breadcrumbs */}
+        {!!breadName && <Breadcrumbs breadName={breadName} />}
 
         {/* content */}
         <div className={styles.divider}>{children}</div>
