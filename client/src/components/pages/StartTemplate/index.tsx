@@ -13,8 +13,8 @@ const UPDATE_USER_MUTATION = gql`
 `;
 
 const StartTemplate = () => {
+  // Hooks
   const { user, isLoading } = useAuth0();
-  const email = user?.email;
   const [nickname, setNickname] = useState("");
 
   const [updateUser] = useMutation(UPDATE_USER_MUTATION, {
@@ -26,10 +26,15 @@ const StartTemplate = () => {
     },
   });
 
+  // Const
+  const email = user?.email;
+
+  // Function
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNickname(event.target.value);
   };
 
+  // DOM
   return (
     <BaseLayout>
       <div>会員初回</div>

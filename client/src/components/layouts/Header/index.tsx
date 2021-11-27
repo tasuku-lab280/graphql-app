@@ -23,7 +23,10 @@ const Header = () => {
           <Link href="/">
             <h2>このサイトについて</h2>
           </Link>
-          <h2 onClick={() => loginWithRedirect()}>ログイン</h2>
+          {!isAuthenticated && (
+            <h2 onClick={() => loginWithRedirect()}>ログイン</h2>
+          )}
+          {isAuthenticated && <h2 onClick={() => logout()}>ログアウト</h2>}
         </div>
         {/* SP アイコン */}
         <div className={styles.sp}>

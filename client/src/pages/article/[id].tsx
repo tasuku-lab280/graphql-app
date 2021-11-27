@@ -1,7 +1,9 @@
+import PrivateRoute from "../../components/commons/PrivateRoute";
 import ArticleTemplate from "../../components/pages/ArticleTemplate";
 
-const Start = () => {
+const ArticleItem = () => {
+  // DOM
   return <ArticleTemplate />;
 };
 
-export default Start;
+export default PrivateRoute(ArticleItem);
