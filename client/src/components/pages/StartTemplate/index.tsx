@@ -4,6 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { gql, useQuery, useMutation } from "@apollo/client";
 
 import Button from "components/commons/atoms/Button";
+import Loading from "components/commons/atoms/Loading";
 import TextField from "components/commons/atoms/TextField";
 import BaseLayout from "../../layouts/BaseLayout";
 import styles from "./styles.module.scss";
@@ -69,7 +70,7 @@ const StartTemplate = () => {
   };
 
   // DOM
-  if (auth0Loading || currentUserLoading) return <p>...loading</p>;
+  if (auth0Loading || currentUserLoading) return <Loading />;
 
   return (
     <BaseLayout>
