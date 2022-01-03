@@ -12,7 +12,7 @@ module Types
       context[:current_user]
     end
 
-    field :feed, Types::PostType, null: false
+    field :feed, [Types::PostType], null: false
     def feed
       context[:current_user].feed
     end
