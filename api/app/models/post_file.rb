@@ -18,7 +18,7 @@
 class PostFile < ApplicationRecord
   # モジュール
   extend Enumerize
-  # mount_uploader :file, PostFileUploader
+  mount_uploader :file, PostFileUploader
   enumerize :kind, in: %i(image file), predicates: { prefix: true }, scope: true
 
 
@@ -56,7 +56,6 @@ class PostFile < ApplicationRecord
                                   # length: { maximum: 255 }
                                   # uniqueness: false
                                   # format: false
-                                  # file_size: { maximum: 10.megabytes }
   validates :note,                # presence: false
                                   length: { maximum: 1024 }
                                   # uniqueness: false

@@ -1,6 +1,7 @@
 # 定数
 USER_COUNT = 20
 POST_COUNT = 100
+POST_FILE_COUNT = 20
 TAG_COUNT = 20
 POST_TAG_COUNT = 20
 TOUCH_COUNT = 20
@@ -32,6 +33,18 @@ results = Array.new(POST_COUNT) do |i|
 end
 Post.create!(results)
 POST_IDS = Post.ids
+
+# 投稿ファイル
+results = Array.new(POST_FILE_COUNT) do |i|
+  num = i + 1
+  {
+    post_id: POST_IDS[i % POST_COUNT],
+    kind: :image,
+    seq: num,
+    file: File.open('app/assets/images/no_image.png'),
+  }
+end
+PostFile.create!(results)
 
 
 # タグ

@@ -30,6 +30,8 @@ class Post < ApplicationRecord
   # 関連
   belongs_to :user, optional: true
   has_many :post_files, dependent: :destroy
+  has_many :images, -> { with_kind(:image) }, class_name: 'PostFile'
+  has_many :files, -> { with_kind(:file) }, class_name: 'PostFile'
   has_many :post_pv_logs, dependent: :destroy
   has_many :touches, dependent: :destroy
   has_many :comments, dependent: :destroy
