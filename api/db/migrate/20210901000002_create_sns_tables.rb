@@ -18,7 +18,7 @@ class CreateSnsTables < ActiveRecord::Migration[6.0]
       t.string  :kind,    null: false, default: :image
       t.string  :seq
       t.string  :file,    null: false
-      t.text    :note,    null: false
+      t.text    :note
 
       t.timestamps null: false
     end
@@ -30,6 +30,7 @@ class CreateSnsTables < ActiveRecord::Migration[6.0]
       t.integer :post_id,    null: false
       t.string  :ip_address
       t.text    :user_agent
+      t.text    :note
 
       t.timestamps                          null: false
     end

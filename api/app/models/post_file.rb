@@ -7,7 +7,7 @@
 #  kind       :string(255)      default("image"), not null
 #  seq        :string(255)
 #  file       :string(255)      not null
-#  note       :text(65535)      not null
+#  note       :text(65535)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

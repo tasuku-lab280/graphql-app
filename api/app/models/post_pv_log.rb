@@ -6,6 +6,7 @@
 #  post_id    :integer          not null
 #  ip_address :string(255)
 #  user_agent :text(65535)
+#  note       :text(65535)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

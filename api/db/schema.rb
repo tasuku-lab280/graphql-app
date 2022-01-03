@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2021_09_01_000002) do
     t.string "kind", default: "image", null: false
     t.string "seq"
     t.string "file", null: false
-    t.text "note", null: false
+    t.text "note"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id", "seq"], name: "index_post_files_on_post_id_and_seq", unique: true
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2021_09_01_000002) do
     t.integer "post_id", null: false
     t.string "ip_address"
     t.text "user_agent"
+    t.text "note"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
