@@ -5,8 +5,8 @@
 #  id         :bigint           not null, primary key
 #  user_id    :integer          not null
 #  status     :string(255)      default("draft"), not null
-#  title      :string(255)      not null
 #  body       :text(65535)      not null
+#  pv         :integer          default(0), not null
 #  note       :text(65535)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -29,6 +29,10 @@ class Post < ApplicationRecord
 
   # 関連
   belongs_to :user, optional: true
+  has_many :post_files, dependent: :destroy
+  has_many :post_pv_logs, dependent: :destroy
+  has_many :touches, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
 
   # 委譲
@@ -42,23 +46,19 @@ class Post < ApplicationRecord
 
   # バリデーション
   validates :user_id,               presence: true
-                                    # length: { maximum: 32, allow_blank: true }
+                                    # length: { maximum: 255 }
                                     # uniqueness: false,
                                     # format: false
   validates :status,                presence: true
-                                    # length: { maximum: 32, allow_blank: true }
-                                    # uniqueness: false,
-                                    # format: false
-  validates :title,                 presence: true,
-                                    length: { maximum: 40, allow_blank: false }
+                                    # length: { maximum: 255 }
                                     # uniqueness: false,
                                     # format: false
   validates :body,                  presence: true,
-                                    length: { maximum: 65535, allow_blank: true }
+                                    length: { maximum: 65535 }
                                     # uniqueness: false,
                                     # format: false
-  validates :note,                  presence: false,
-                                    length: { maximum: 1024, allow_blank: true }
+  validates :note,                  # presence: false,
+                                    length: { maximum: 1024 }
                                     # uniqueness: false
                                     # format: false
 
