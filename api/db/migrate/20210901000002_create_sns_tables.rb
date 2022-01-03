@@ -55,7 +55,7 @@ class CreateSnsTables < ActiveRecord::Migration[6.0]
 
     # タッチ
     create_table :touches do |t|
-      t.integer :user_id
+      t.integer :user_id, null: false
       t.integer :post_id, null: false
       t.string  :kind,    null: false
       t.text    :note

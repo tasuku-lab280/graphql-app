@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 2021_09_01_000002) do
   end
 
   create_table "touches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.integer "post_id", null: false
     t.string "kind", null: false
     t.text "note"

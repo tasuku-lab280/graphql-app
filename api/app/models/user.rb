@@ -26,6 +26,13 @@ class User < ApplicationRecord
 
   # 関連
   has_many :posts, dependent: :destroy
+  has_many :touches, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :active_follows, class_name:  'Follow', foreign_key: 'follower_id', dependent: :destroy
+  has_many :followings, through: :active_follows, source: :followed, dependent: :destroy
+  has_many :passive_follows, class_name: 'Follow', foreign_key: 'followed_id', dependent: :destroy
+  has_many :followers, through: :passive_follows, source: :follower, dependent: :destroy
+
 
 
   # 委譲
@@ -70,6 +77,9 @@ class User < ApplicationRecord
 
 
   # メソッド
+  def feed
+    Post.where(user_id: followings.select(:id)).or(posts)
+  end
 
 
   # メソッド(Private)

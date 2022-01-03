@@ -11,5 +11,10 @@ module Types
     def current_user
       context[:current_user]
     end
+
+    field :feed, Types::PostType, null: false
+    def feed
+      context[:current_user].feed
+    end
   end
 end

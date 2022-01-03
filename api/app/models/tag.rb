@@ -24,6 +24,7 @@ class Tag < ApplicationRecord
 
   # 関連
   has_many :post_tags, dependent: :destroy
+  has_many :posts, through: :post_tags, source: :post
 
 
   # 委譲

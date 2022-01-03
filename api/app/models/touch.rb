@@ -3,7 +3,7 @@
 # Table name: touches
 #
 #  id         :bigint           not null, primary key
-#  user_id    :integer
+#  user_id    :integer          not null
 #  post_id    :integer          not null
 #  kind       :string(255)      not null
 #  note       :text(65535)

@@ -33,6 +33,8 @@ class Post < ApplicationRecord
   has_many :images, -> { with_kind(:image) }, class_name: 'PostFile'
   has_many :files, -> { with_kind(:file) }, class_name: 'PostFile'
   has_many :post_pv_logs, dependent: :destroy
+  has_many :post_tags, dependent: :destroy
+  has_many :tags, through: :post_tags, source: :tag
   has_many :touches, dependent: :destroy
   has_many :comments, dependent: :destroy
 
