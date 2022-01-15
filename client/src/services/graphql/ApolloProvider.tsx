@@ -3,9 +3,9 @@ import {
   ApolloProvider as Provider,
   createHttpLink,
   InMemoryCache,
-} from "@apollo/client";
-import { useAuth0 } from "@auth0/auth0-react";
-import { setContext } from "@apollo/client/link/context";
+} from '@apollo/client';
+import { useAuth0 } from '@auth0/auth0-react';
+import { setContext } from '@apollo/client/link/context';
 
 const ApolloProvider: React.FC = ({ children }) => {
   const { getAccessTokenSilently } = useAuth0();
@@ -15,7 +15,7 @@ const ApolloProvider: React.FC = ({ children }) => {
     return {
       headers: {
         ...headers,
-        authorization: token ? `Bearer ${token}` : "",
+        authorization: token ? `Bearer ${token}` : '',
       },
     };
   });
