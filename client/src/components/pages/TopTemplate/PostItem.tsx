@@ -14,14 +14,15 @@ import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 // Custom Import
-import { post } from './__generated__/post';
+import type { post } from './__generated__/post';
 
 type Props = {
   post: post;
+  userId: number;
 };
 
 // Component
-export const PostItem = ({ post }: Props) => {
+export const PostItem = ({ post, userId }: Props) => {
   // Const
   const { body, createdAtText, user, touches } = post;
   const { nickname: userNickname } = user;

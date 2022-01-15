@@ -1,4 +1,4 @@
-import { TextField as MuiTextField } from "@mui/material";
+import { TextField as MuiTextField } from '@mui/material';
 
 // Interface
 interface Props {
@@ -7,17 +7,18 @@ interface Props {
   className: any;
   disabled?: boolean;
   error?: boolean;
+  errorMessages?: Array<String>;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const TextField = (props: Props) => {
   // Const
-  const { label, value, className, disabled, error, onChange } = props;
+  const { label, value, className, disabled, error, errorMessages, onChange } = props;
 
   // Function
   const helperText = () => {
     if (!error) return null;
-    return `${label}${error}`;
+    return `${label}${errorMessages}`;
   };
 
   // DOM
