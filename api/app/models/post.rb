@@ -17,6 +17,7 @@
 #
 class Post < ApplicationRecord
   # モジュール
+  include ActionView::Helpers::DateHelper
   extend Enumerize
   enumerize :status, in: %i(public private draft), predicates: { prefix: true }, scope: true
 
@@ -77,6 +78,9 @@ class Post < ApplicationRecord
 
 
   # メソッド
+  def created_at_text
+    time_ago_in_words(created_at)
+  end
 
 
   # メソッド(Private)
