@@ -1,22 +1,91 @@
 ja:
   activerecord:
     models:
-      user: "会員"
-      article: "記事"
+      user: '会員'
+      post: '投稿'
+      post_file: '投稿ファイル'
+      post_pv_log: '投稿PVログ'
+      post_tag: '投稿タグ'
+      tag: 'タグ'
+      touch: 'タッチ'
+      comment: 'コメント'
+      follow: 'フォロー'
 
     attributes:
       user:
-        nickname: "ニックネーム"
-        email: "Eメール"
-        note: "備考"
-        created_at: "作成日時"
-        updated_at: "更新日時"
+        id: 'ID'
+        auth0_id: 'Auth0ID'
+        nickname: 'ニックネーム'
+        email: 'Eメール'
+        note: '備考'
+        created_at: '作成日時'
+        updated_at: '更新日時'
 
-      article:
-        user_id: "会員ID"
-        status: "ステータス"
-        title: "タイトル"
-        body: "本文"
-        note: "備考"
-        created_at: "作成日時"
-        updated_at: "更新日時"
+      post:
+        id: 'ID'
+        user_id: '会員ID'
+        status: 'ステータス'
+        body: '本文'
+        pv: '閲覧数'
+        note: '備考'
+        created_at: '作成日時'
+        updated_at: '更新日時'
+
+      post_file:
+        id: 'ID'
+        post_id: '投稿ID'
+        seq: '連番'
+        file: 'ファイル'
+        note: '備考'
+        created_at: '作成日時'
+        updated_at: '更新日時'
+
+      post_pv_log:
+        id: 'ID'
+        post_id: '投稿ID'
+        ip_address: 'IPアドレス'
+        user_agent: 'ユーザーエージェント'
+        note: '備考'
+        created_at: '作成日時'
+        updated_at: '更新日時'
+
+      post_tag:
+        id: 'ID'
+        tag_id: 'タグID'
+        post_id: '投稿ID'
+        note: '備考'
+        created_at: '作成日時'
+        updated_at: '更新日時'
+
+      tag:
+        id: 'ID'
+        name: 'タグ名'
+        note: '備考'
+        created_at: '作成日時'
+        updated_at: '更新日時'
+
+      touch:
+        id: 'ID'
+        user_id: '会員ID'
+        post_id: '投稿ID'
+        kind: '種類'
+        note: '備考'
+        created_at: '作成日時'
+        updated_at: '更新日時'
+
+      comment:
+        id: 'ID'
+        user_id: '会員ID'
+        post_id: '投稿ID'
+        body: '本文'
+        note: '備考'
+        created_at: '作成日時'
+        updated_at: '更新日時'
+
+      follow:
+        id: 'ID'
+        follower_id: 'フォローID'
+        followed_id: 'フォロワーID'
+        note: '備考'
+        created_at: '作成日時'
+        updated_at: '更新日時'

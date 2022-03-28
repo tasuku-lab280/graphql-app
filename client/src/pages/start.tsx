@@ -1,5 +1,5 @@
-import PrivateRoute from "../components/commons/PrivateRoute";
-import StartTemplate from "../components/pages/StartTemplate";
+import PrivateRoute from 'components/commons/PrivateRoute';
+import StartTemplate from 'components/pages/StartTemplate';
 
 const Start = () => {
   // DOM

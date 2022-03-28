@@ -1,9 +1,23 @@
-import Link from "next/link";
-import { useAuth0 } from "@auth0/auth0-react";
-import styles from "./styles.module.scss";
+// Import
+import Link from 'next/link';
+import { useDispatch } from 'react-redux';
+import { useAuth0 } from '@auth0/auth0-react';
 
+// Custom Import
+import { resetCurrentUser } from 'services/redux/slice/currentUser';
+import styles from './styles.module.scss';
+
+// Componsnt
 const Header = () => {
+  // Hooks
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const dispatch = useDispatch();
+
+  // Function
+  const handleLogout = () => {
+    dispatch(resetCurrentUser());
+    logout();
+  };
 
   return (
     <div className={styles.container}>
@@ -23,10 +37,8 @@ const Header = () => {
           <Link href="/">
             <h2>このサイトについて</h2>
           </Link>
-          {!isAuthenticated && (
-            <h2 onClick={() => loginWithRedirect()}>ログイン</h2>
-          )}
-          {isAuthenticated && <h2 onClick={() => logout()}>ログアウト</h2>}
+          {!isAuthenticated && <h2 onClick={() => loginWithRedirect()}>ログイン</h2>}
+          {isAuthenticated && <h2 onClick={handleLogout}>ログアウト</h2>}
         </div>
         {/* SP アイコン */}
         <div className={styles.sp}>

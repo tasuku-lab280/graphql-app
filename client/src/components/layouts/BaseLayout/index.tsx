@@ -1,7 +1,7 @@
-import Breadcrumbs from "../Breadcrumbs";
-import Header from "../Header";
-import Footer from "../Footer";
-import styles from "./styles.module.scss";
+import Breadcrumbs from 'components/layouts/Breadcrumbs';
+import Header from 'components/layouts/Header';
+import Footer from 'components/layouts/Footer';
+import styles from './styles.module.scss';
 
 interface Props {
   children: React.ReactNode;

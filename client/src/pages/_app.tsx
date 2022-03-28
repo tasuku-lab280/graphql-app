@@ -1,16 +1,25 @@
-import type { AppProps } from "next/app";
+// Import
+import type { AppProps } from 'next/app';
 
-import Auth0Provider from "../services/auth0/Auth0Provider";
-import ApolloProvider from "../services/graphql/ApolloProvider";
-import "../styles/globals.scss";
+// Custom Import
+import Auth0Provider from 'services/auth0/Auth0Provider';
+import ApolloProvider from 'services/graphql/ApolloProvider';
+import ReduxProvider from 'services/redux/ReduxProvider';
+import 'styles/globals.scss';
 
-function MyApp({ Component, pageProps }: AppProps) {
+// Component
+const App = ({ Component, pageProps }: AppProps) => {
+  // DOM
   return (
-    <Auth0Provider>
-      <ApolloProvider>
-        <Component {...pageProps} />
-      </ApolloProvider>
-    </Auth0Provider>
+    <ReduxProvider>
+      <Auth0Provider>
+        <ApolloProvider>
+          <Component {...pageProps} />
+        </ApolloProvider>
+      </Auth0Provider>
+    </ReduxProvider>
   );
-}
-export default MyApp;
+};
+
+// Default Export
+export default App;

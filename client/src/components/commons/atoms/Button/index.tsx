@@ -1,5 +1,5 @@
-import { LoadingButton as MuiLoadingButton } from "@mui/lab";
-import SaveIcon from "@mui/icons-material/Save";
+import { LoadingButton as MuiLoadingButton } from '@mui/lab';
+import SaveIcon from '@mui/icons-material/Save';
 
 // Interface
 interface Props {
@@ -19,8 +19,7 @@ const Button = (props: Props) => {
       loading={loading}
       loadingPosition="start"
       startIcon={loading && <SaveIcon />}
-      onClick={onClick}
-    >
+      onClick={onClick}>
       {label}
     </MuiLoadingButton>
   );
